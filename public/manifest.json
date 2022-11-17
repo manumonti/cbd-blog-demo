@@ -1,6 +1,6 @@
 {
-  "short_name": "CBD demo blog",
-  "name": "Nucypher CBD demo blog",
+  "short_name": "CBD blog demo",
+  "name": "Nucypher CBD blog demo",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
