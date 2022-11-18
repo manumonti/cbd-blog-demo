@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@nucypher/nucypher-ts": "^0.8.2",
+    "@nucypher/nucypher-ts": "^0.7.9-alpha.26",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
