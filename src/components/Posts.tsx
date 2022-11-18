@@ -18,6 +18,7 @@ function Posts() {
       author: "Hagan Dietz",
       imgUrl:
         "https://blog.threshold.network/content/images/size/w1000/2022/11/unnamed.png",
+      tier: "bronze",
     },
     {
       title: "Reclaiming the Term ‘Decentralization’",
@@ -31,6 +32,7 @@ function Posts() {
       author: "Marketing Guild",
       imgUrl:
         "https://blog.threshold.network/content/images/size/w1000/2022/10/meme-smaller.jpg",
+      tier: "gold",
     },
     {
       title: "An Updated Timeline for the Launch of tBTC v2",
@@ -44,6 +46,7 @@ function Posts() {
       author: "Hagan Dietz",
       imgUrl:
         "https://blog.threshold.network/content/images/size/w1000/2022/11/timeline-update.png",
+      tier: "bronze",
     },
     {
       title: "Three Pillars of DAO Treasury Management",
@@ -57,6 +60,7 @@ function Posts() {
       author: "Threshold",
       imgUrl:
         "https://blog.threshold.network/content/images/size/w1000/2022/10/BLOG-three-pillars-1.jpg",
+      tier: "silver",
     },
     {
       title: "The Updated Rewards Allocation Between tBTC and PRE Stakers",
@@ -69,6 +73,7 @@ function Posts() {
       author: "Hagan Dietz",
       imgUrl:
         "https://blog.threshold.network/content/images/size/w1000/2022/10/BLOGPOST_Rewards.jpg",
+      tier: "silver",
     },
     {
       title: "Least Authority’s Audit of tBTC v2",
@@ -80,6 +85,7 @@ function Posts() {
       author: "Hagan Dietz",
       imgUrl:
         "https://blog.threshold.network/content/images/size/w1000/2022/10/security-2.jpg",
+      tier: "bronze",
     },
     {
       title: "tBTC v2 Hits Its First Launch Milestone",
@@ -89,6 +95,7 @@ function Posts() {
       author: "Hagan Dietz",
       imgUrl:
         "https://blog.threshold.network/content/images/size/w1000/2022/10/chaosnet_header.jpg",
+      tier: "silver",
     },
     {
       title: "Flowdock to Discord: How I Learned to Love Bishop",
@@ -102,6 +109,7 @@ function Posts() {
       author: "Beau Shinkle",
       imgUrl:
         "https://blog.threshold.network/content/images/size/w1000/2022/09/Team-Communication.jpg",
+      tier: "gold",
     },
   ]
 
