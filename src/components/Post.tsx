@@ -3,10 +3,7 @@ import "./Post.css"
 
 function Post({ post }: any) {
   function colorTier(color: string) {
-    let backgroundColor = color
-    if (color === "bronze") {
-      backgroundColor = "peru"
-    }
+    const backgroundColor = color === "bronze" ? "peru" : color
 
     const style = {
       backgroundColor: backgroundColor,
