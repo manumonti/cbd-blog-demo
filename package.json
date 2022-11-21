@@ -2,39 +2,40 @@
   "name": "cbd-blog-demo",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "webpack serve --mode development",
+    "build": "tsc --noEmit && rimraf build && webpack --mode production --progress"
+  },
   "dependencies": {
     "@nucypher/nucypher-ts": "^0.7.9-alpha.26",
-    "@types/jest": "^27.0.1",
-    "@types/node": "^16.7.13",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.4.2",
-    "web-vitals": "^2.1.0"
+    "file-loader": "^6.2.0",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "react-router-dom": "^5.2.0",
+    "style-loader": "^3.3.1"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.4",
+    "@testing-library/react": "^11.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-router-dom": "^5.1.7",
+    "@typescript-eslint/eslint-plugin": "^4.28.2",
+    "@typescript-eslint/parser": "^4.28.2",
+    "buffer": "^6.0.3",
+    "copy-webpack-plugin": "^6.2.1",
+    "css-loader": "^6.7.2",
+    "esbuild-loader": "^2.11.0",
+    "html-webpack-plugin": "^4.5.0",
+    "process": "^0.11.10",
+    "react-refresh": "^0.11.0",
+    "rimraf": "^3.0.2",
+    "stream-browserify": "^3.0.0",
+    "ts-loader": "^8.0.7",
+    "typescript": "^4.0.0",
+    "webpack": "^5.44.0",
+    "webpack-bundle-analyzer": "^4.4.2",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^4.7.4"
   }
 }

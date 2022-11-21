@@ -115,11 +115,8 @@ function Posts() {
 
   return (
     <div className="posts-container">
-      {/* <div> */}
       {blogPosts.map((post, index) => (
-        <div>
           <Post key={index} post={post} />
-        </div>
       ))}
     </div>
   )
