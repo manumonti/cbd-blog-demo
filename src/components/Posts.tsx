@@ -116,7 +116,7 @@ function Posts() {
   return (
     <div className="posts-container">
       {blogPosts.map((post, index) => (
-          <Post key={index} post={post} />
+        <Post key={index} post={post} />
       ))}
     </div>
   )
