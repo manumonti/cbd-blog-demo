@@ -1,6 +1,5 @@
 const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
-const CopyPlugin = require("copy-webpack-plugin")
 const { ESBuildMinifyPlugin } = require("esbuild-loader")
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin")
 const webpack = require("webpack")
@@ -15,15 +14,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/index.html",
     }),
-    // new CopyPlugin({
-    //   patterns: [
-    //     { from: 'src/_redirects', to: '' },
-    //     {
-    //       from: 'src/assets/images/favicon.ico',
-    //       to: 'favicon.ico',
-    //     },
-    //   ],
-    // }),
     new webpack.ProvidePlugin({
       Buffer: ["buffer", "Buffer"],
       process: "process/browser",
