@@ -1,6 +1,6 @@
-import React from "react"
-import Post from "./Post"
-import "./Posts.css"
+import React from "react";
+import Post from "./Post";
+import "./Posts.css";
 
 function Posts() {
   const blogPosts = [
@@ -111,7 +111,7 @@ function Posts() {
         "https://blog.threshold.network/content/images/size/w1000/2022/09/Team-Communication.jpg",
       tier: "gold",
     },
-  ]
+  ];
 
   return (
     <div className="posts-container">
@@ -119,7 +119,7 @@ function Posts() {
         <Post key={index} post={post} />
       ))}
     </div>
-  )
+  );
 }
 
-export default Posts
+export default Posts;
