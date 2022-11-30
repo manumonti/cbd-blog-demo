@@ -1,8 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { useEthers } from "@usedapp/core";
-// import detectEthereumProvider from "@metamask/detect-provider";
-// import { providers } from "ethers";
 import Posts from "./components/Posts";
 import CBDHeader from "./components/CBDHeader";
 
