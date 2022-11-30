@@ -8,9 +8,9 @@ import {
   Strategy,
 } from "@nucypher/nucypher-ts";
 
-function StrategyBuilder({ setStrategyDeploying }: any) {
+function StrategyBuilder({ setDepStrategy }: any) {
   const strategyBuild = async () => {
-    setStrategyDeploying("Deploying...");
+    setDepStrategy("Deploying...");
 
     const cohortConfig = {
       threshold: 3,
@@ -29,17 +29,19 @@ function StrategyBuilder({ setStrategyDeploying }: any) {
     const strategy = Strategy.create(cohort, conditions);
 
     const MMProvider = await detectEthereumProvider();
-    const network = providers.getNetwork("maticmum")
+    const network = providers.getNetwork("maticmum");
     if (MMProvider) {
       const web3Provider = new providers.Web3Provider(MMProvider, network);
-      const deployedStrategy = await strategy.deploy("blog-subscription", web3Provider);
-      setStrategyDeploying(deployedStrategy.label);
+      const deployedStrategy = await strategy.deploy(
+        `blog-subscription-${Math.floor(Math.random() * 100)}`,
+        web3Provider
+      );
+      setDepStrategy(deployedStrategy);
     }
-
   };
 
   return (
-    <button className="cbd-buttons" onClick={strategyBuild}>
+    <button className="cbd-button" onClick={strategyBuild}>
       Step 2. Deploy Strategy
     </button>
   );

@@ -8,7 +8,8 @@ import CBDHeader from "./components/CBDHeader";
 
 function App() {
   const { activateBrowserWallet, deactivate, account } = useEthers();
-  const [strategyDeploying, setStrategyDeploying] = useState("not deployed");
+  const [depStrategy, setDepStrategy] = useState("not deployed");
+  const [encryptedMessage, setEncryptedMessage] = useState("");
 
   return (
     <div>
@@ -16,8 +17,10 @@ function App() {
         activateBrowserWallet={activateBrowserWallet}
         account={account}
         deactivate={deactivate}
-        strategyDeploying={strategyDeploying}
-        setStrategyDeploying={setStrategyDeploying}
+        depStrategy={depStrategy}
+        setDepStrategy={setDepStrategy}
+        encryptedMessage={encryptedMessage}
+        setEncryptedMessage={setEncryptedMessage}
       />
       <div>
         <div className="blog-header">
