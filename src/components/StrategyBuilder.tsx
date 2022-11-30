@@ -22,9 +22,8 @@ function StrategyBuilder({ setStrategyDeploying }: any) {
 
     const condition = new Conditions.ERC721Balance({
       contractAddress: "0xf5de760f2e916647fd766B4AD9E85ff943cE3A2b",
-      chain: 1,
+      chain: 5,
     });
-
     const conditions = new ConditionSet([condition]);
 
     const strategy = Strategy.create(cohort, conditions);
