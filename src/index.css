@@ -14,6 +14,11 @@ body {
   padding: 2%;
 }
 
+.cbd-buttons {
+  width: 200px;
+  text-align: start;
+}
+
 .column {
   float: left;
   width: 50%;

@@ -1,6 +1,13 @@
 import React from "react";
+import StrategyBuilder from "./StrategyBuilder";
 
-function CBDHeader({ activateBrowserWallet, account, deactivate }: any) {
+function CBDHeader({
+  activateBrowserWallet,
+  account,
+  deactivate,
+  strategyDeploying,
+  setStrategyDeploying,
+}: any) {
   function shortenAddress(address: string) {
     if (address && address.length === 42) {
       return `${address.slice(0, 5)}...${address.slice(38)}`;
@@ -12,15 +19,26 @@ function CBDHeader({ activateBrowserWallet, account, deactivate }: any) {
     <div className="cbd-header">
       <div className="row">
         <div className="column">
-          <button onClick={activateBrowserWallet}>
-            Step 1. Connect Wallet
-          </button>
-          {/* <StrategyBuilder setLoading={setLoading} /> */}
+          <div>
+            <button className="cbd-buttons" onClick={activateBrowserWallet}>
+              Step 1. Connect Wallet
+            </button>
+          </div>
+          <div>
+            <StrategyBuilder setStrategyDeploying={setStrategyDeploying}/>
+          </div>
         </div>
         <div className="column">
           <div style={{ textAlign: "right" }}>
-            <span>Account: <b>{shortenAddress(account)} </b></span>
-            {account && <span><button onClick={deactivate}>Disconnect</button></span>}
+            <span>
+              Account: <b>{shortenAddress(account)} </b>
+            </span>
+            {account && (
+              <span>
+                <button onClick={deactivate}>Disconnect</button>
+              </span>
+            )}
+            {strategyDeploying && <div>Deploying...</div>}
           </div>
         </div>
       </div>

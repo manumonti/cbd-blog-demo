@@ -1,5 +1,6 @@
 import React from "react";
-
+import detectEthereumProvider from "@metamask/detect-provider";
+import { providers } from "ethers";
 import {
   Cohort,
   Conditions,
@@ -7,9 +8,9 @@ import {
   Strategy,
 } from "@nucypher/nucypher-ts";
 
-function StrategyBuilder({ setLoading }: any) {
+function StrategyBuilder({ setStrategyDeploying }: any) {
   const strategyBuild = async () => {
-    setLoading(true);
+    setStrategyDeploying(true);
 
     const cohortConfig = {
       threshold: 3,
@@ -24,17 +25,26 @@ function StrategyBuilder({ setLoading }: any) {
       chain: 1,
     });
 
-    const conditionSet = new ConditionSet([condition]);
+    const conditions = new ConditionSet([condition]);
 
-    const strategy = Strategy.create(cohort, conditionSet);
-    console.log(strategy);
+    const strategy = Strategy.create(cohort, conditions);
 
-    // const deployedStrategy = await strategy.deploy("ERC721Balance", provider);
+    const MMProvider = await detectEthereumProvider();
+    const network = providers.getNetwork("maticmum")
+    if (MMProvider) {
+      const web3Provider = new providers.Web3Provider(MMProvider, network);
+      const deployedStrategy = await strategy.deploy("ERC721Balance", web3Provider);
+      console.log(deployedStrategy)
+    }
 
-    setLoading(false);
+    setStrategyDeploying(false);
   };
 
-  return <button onClick={strategyBuild}>1. Deploy Strategy</button>;
+  return (
+    <button className="cbd-buttons" onClick={strategyBuild}>
+      Step 2. Deploy Strategy
+    </button>
+  );
 }
 
 export default StrategyBuilder;
