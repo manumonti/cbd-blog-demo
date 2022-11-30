@@ -16,8 +16,8 @@ function Post({ post }: any) {
   return (
     <div className="post-container">
       {colorTier(post.tier)}
-      <h2 className="heading">{post.title}</h2>
-      <img className="image" src={post.imgUrl} alt="post" />
+      <h2 className="post-heading">{post.title}</h2>
+      <img className="post-image" src={post.imgUrl}/>
       <p>{post.body}</p>
       <div className="info">
         <h4>Written by: {post.author}</h4>

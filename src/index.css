@@ -8,7 +8,24 @@ body {
   background-image: linear-gradient(to right, rgb(137, 0, 255), rgb(138,0,200));
 }
 
-.header {
+.cbd-header {
+  margin: 0% 2%;
+  background:rgb(226, 199, 250);
+  padding: 2%;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.blog-header {
   padding: 1%;
   font-size: 20px;
   text-align: center;
@@ -22,6 +39,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 .post-container {
   background: #e2e8d5;
   display: flex;
@@ -29,12 +47,14 @@ body {
   padding: 3%;
   margin: 2% 2%;
 }
-.heading {
+
+.post-heading {
   text-align: center;
   display: block;
   align-items: center;
 }
-.image {
+
+.post-image {
   height: 210px;
   align-self: center;
 }
