@@ -27,7 +27,7 @@ function CBDHeader({
   }
 
   function showEncrypted() {
-    return encryptedMessage ? "Encrypted" : "Not ready"
+    return encryptedMessage ? "Encrypted" : "not ready"
   }
 
   return (
