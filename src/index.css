@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  padding: 20px;
+  background-image: linear-gradient(to right, rgb(137, 0, 255), rgb(138,0,200));
+}
+
+.header {
+  padding: 1%;
+  font-size: 20px;
+  text-align: center;
+  color: rgb(92, 26, 153);
+  background: #f2f4ed;
+  margin: 2% 2%;
+}
+
+.posts-container {
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+.post-container {
+  background: #e2e8d5;
+  display: flex;
+  flex-direction: column;
+  padding: 3%;
+  margin: 2% 2%;
+}
+.heading {
+  text-align: center;
+  display: block;
+  align-items: center;
+}
+.image {
+  height: 210px;
+  align-self: center;
+}

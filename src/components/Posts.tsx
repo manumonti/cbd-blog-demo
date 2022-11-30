@@ -1,6 +1,5 @@
 import React from "react";
 import Post from "./Post";
-import "./Posts.css";
 
 function Posts() {
   const blogPosts = [

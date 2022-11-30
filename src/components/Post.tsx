@@ -1,5 +1,4 @@
 import React from "react";
-import "./Post.css";
 
 function Post({ post }: any) {
   function colorTier(color: string) {
