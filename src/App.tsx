@@ -8,7 +8,7 @@ import CBDHeader from "./components/CBDHeader";
 
 function App() {
   const { activateBrowserWallet, deactivate, account } = useEthers();
-  const [strategyDeploying, setStrategyDeploying] = useState(false);
+  const [strategyDeploying, setStrategyDeploying] = useState("not deployed");
 
   return (
     <div>

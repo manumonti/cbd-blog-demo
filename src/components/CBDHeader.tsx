@@ -38,7 +38,7 @@ function CBDHeader({
                 <button onClick={deactivate}>Disconnect</button>
               </span>
             )}
-            {strategyDeploying && <div>Deploying...</div>}
+            <div>Strategy: <b>{strategyDeploying}</b></div>
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ import {
 
 function StrategyBuilder({ setStrategyDeploying }: any) {
   const strategyBuild = async () => {
-    setStrategyDeploying(true);
+    setStrategyDeploying("Deploying...");
 
     const cohortConfig = {
       threshold: 3,
@@ -33,11 +33,10 @@ function StrategyBuilder({ setStrategyDeploying }: any) {
     const network = providers.getNetwork("maticmum")
     if (MMProvider) {
       const web3Provider = new providers.Web3Provider(MMProvider, network);
-      const deployedStrategy = await strategy.deploy("ERC721Balance", web3Provider);
-      console.log(deployedStrategy)
+      const deployedStrategy = await strategy.deploy("blog-subscription", web3Provider);
+      setStrategyDeploying(deployedStrategy.label);
     }
 
-    setStrategyDeploying(false);
   };
 
   return (
