@@ -20,6 +20,7 @@ function App() {
       <CBDHeader
         activateBrowserWallet={activateBrowserWallet}
         account={account}
+        deactivate={deactivate}
       />
       <div>
         <div className="blog-header">
