@@ -10,7 +10,7 @@ import {
 
 function StrategyBuilder({ setDepStrategy }: any) {
   const strategyBuild = async () => {
-    setDepStrategy("Deploying...");
+    setDepStrategy("deploying...");
 
     const cohortConfig = {
       threshold: 3,
@@ -23,20 +23,65 @@ function StrategyBuilder({ setDepStrategy }: any) {
     const conditionSilver = new Conditions.ERC721Balance({
       contractAddress: "0xf5de760f2e916647fd766B4AD9E85ff943cE3A2b",
       chain: 5,
+      returnValueTest: {
+        comparator: ">",
+        value: "0",
+      },
+    });
+    const conditionBronze = new Conditions.ERC721Balance({
+      contractAddress: "0xf5de760f2e916647fd766B4AD9E85ff943cE3A2b",
+      chain: 5,
+      returnValueTest: {
+        comparator: ">",
+        value: "1",
+      },
+    });
+    const conditionGold = new Conditions.ERC721Balance({
+      contractAddress: "0xf5de760f2e916647fd766B4AD9E85ff943cE3A2b",
+      chain: 5,
+      returnValueTest: {
+        comparator: ">",
+        value: "2",
+      },
     });
     const conditionsSilver = new ConditionSet([conditionSilver]);
+    const conditionsBronze = new ConditionSet([conditionBronze]);
+    const conditionsGold = new ConditionSet([conditionGold]);
 
-    const strategy = Strategy.create(cohort, conditionsSilver);
+    const strategySilver = Strategy.create(cohort, conditionsSilver);
+    const strategyBronze = Strategy.create(cohort, conditionsBronze);
+    const strategyGold = Strategy.create(cohort, conditionsGold);
 
     const mmProvider = await detectEthereumProvider();
     const network = providers.getNetwork("maticmum");
     if (mmProvider) {
       const web3Provider = new providers.Web3Provider(mmProvider, network);
-      const deployedStrategy = await strategy.deploy(
-        `blog-subscription-${Math.floor(Math.random() * 100)}`,
+
+      const deployedStrategySilver = strategySilver.deploy(
+        "blog-subscription-silver",
         web3Provider
       );
-      setDepStrategy(deployedStrategy);
+      const deployedStrategyBronze = strategyBronze.deploy(
+        "blog-subscription-bronze",
+        web3Provider
+      );
+      const deployedStrategyGold = strategyGold.deploy(
+        "blog-subscription-gold",
+        web3Provider
+      );
+
+      await deployedStrategySilver;
+      console.log(deployedStrategySilver);
+      await deployedStrategyBronze;
+      console.log(deployedStrategyBronze);
+      await deployedStrategyGold;
+      console.log(deployedStrategyGold);
+
+      setDepStrategy([
+        deployedStrategySilver,
+        deployedStrategyBronze,
+        deployedStrategyGold,
+      ]);
     }
   };
 

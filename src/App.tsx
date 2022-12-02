@@ -6,7 +6,7 @@ import CBDHeader from "./components/CBD/CBDHeader";
 
 function App() {
   const { activateBrowserWallet, deactivate, account } = useEthers();
-  const [depStrategy, setDepStrategy] = useState("not deployed");
+  const [depStrategy, setDepStrategy] = useState([]);
   const [encryptedMessage, setEncryptedMessage] = useState("");
   const [decryptedMessage, setDecryptedMessage] = useState(null);
 

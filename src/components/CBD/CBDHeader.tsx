@@ -14,7 +14,6 @@ function CBDHeader({
   decryptedMessage,
   setDecryptedMessage,
 }: any) {
-
   function shortenAddress(address: string) {
     if (address && address.length === 42) {
       return `${address.slice(0, 5)}...${address.slice(38)}`;
@@ -26,7 +25,7 @@ function CBDHeader({
     if (typeof depStrategy === "string") {
       return depStrategy;
     } else {
-      return depStrategy.label;
+      return depStrategy.length === 0 ? "not deployed" : "deployed";
     }
   }
 
@@ -75,7 +74,7 @@ function CBDHeader({
               </span>
             )}
             <div>
-              Strategy: <b>{showStrategy(depStrategy)}</b>
+              Strategies: <b>{showStrategy(depStrategy)}</b>
             </div>
             <div>
               Posts encryption: <b>{showEncrypted()}</b>

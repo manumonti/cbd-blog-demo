@@ -9,7 +9,9 @@ function Encrypt({ depStrategy, setEncryptedMessage }: any) {
   const encrypt = () => {
     const encrypter = depStrategy.encrypter;
     if (encrypter) {
-      setEncryptedMessage(encrypter.encryptMessage(JSON.stringify(silverBlogPosts)));
+      setEncryptedMessage(
+        encrypter.encryptMessage(JSON.stringify(silverBlogPosts))
+      );
     }
   };
 
