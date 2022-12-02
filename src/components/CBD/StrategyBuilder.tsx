@@ -8,7 +8,7 @@ import {
   Strategy,
 } from "@nucypher/nucypher-ts";
 
-function StrategyBuilder({ setDepStrategy, setConditionContext }: any) {
+function StrategyBuilder({ setDepStrategy }: any) {
   const strategyBuild = async () => {
     setDepStrategy("Deploying...");
 
@@ -28,17 +28,15 @@ function StrategyBuilder({ setDepStrategy, setConditionContext }: any) {
 
     const strategy = Strategy.create(cohort, conditions);
 
-    const MMProvider = await detectEthereumProvider();
+    const mmProvider = await detectEthereumProvider();
     const network = providers.getNetwork("maticmum");
-    if (MMProvider) {
-      const web3Provider = new providers.Web3Provider(MMProvider, network);
+    if (mmProvider) {
+      const web3Provider = new providers.Web3Provider(mmProvider, network);
       const deployedStrategy = await strategy.deploy(
         `blog-subscription-${Math.floor(Math.random() * 100)}`,
         web3Provider
       );
       setDepStrategy(deployedStrategy);
-      const conditionContext = conditions.buildContext(web3Provider);
-      setConditionContext(conditionContext);
     }
   };
 

@@ -9,13 +9,12 @@ function CBDHeader({
   deactivate,
   depStrategy,
   setDepStrategy,
-  conditionContext,
-  setConditionContext,
   encryptedMessage,
   setEncryptedMessage,
   decryptedMessage,
   setDecryptedMessage,
 }: any) {
+
   function shortenAddress(address: string) {
     if (address && address.length === 42) {
       return `${address.slice(0, 5)}...${address.slice(38)}`;
@@ -49,10 +48,7 @@ function CBDHeader({
             </button>
           </div>
           <div>
-            <StrategyBuilder
-              setDepStrategy={setDepStrategy}
-              setConditionContext={setConditionContext}
-            />
+            <StrategyBuilder setDepStrategy={setDepStrategy} />
           </div>
           <div>
             <Encrypt
@@ -63,7 +59,6 @@ function CBDHeader({
           <div>
             <Decrypt
               depStrategy={depStrategy}
-              conditionContext={conditionContext}
               encryptedMessage={encryptedMessage}
               setDecryptedMessage={setDecryptedMessage}
             />
