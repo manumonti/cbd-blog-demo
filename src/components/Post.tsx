@@ -13,11 +13,15 @@ function Post({ post }: any) {
     return <i style={style}>{color}</i>;
   }
 
+  if (Object.keys(post).length === 0) {
+    return null;
+  }
+
   return (
     <div className="post-container">
       {colorTier(post.tier)}
       <h2 className="post-heading">{post.title}</h2>
-      <img className="post-image" src={post.imgUrl}/>
+      <img className="post-image" src={post.imgUrl} />
       <p>{post.body}</p>
       <div className="info">
         <h4>Written by: {post.author}</h4>

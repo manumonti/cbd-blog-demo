@@ -8,7 +8,7 @@ import {
   Strategy,
 } from "@nucypher/nucypher-ts";
 
-function StrategyBuilder({ setDepStrategy }: any) {
+function StrategyBuilder({ setDepStrategy, setConditionContext }: any) {
   const strategyBuild = async () => {
     setDepStrategy("Deploying...");
 
@@ -37,6 +37,8 @@ function StrategyBuilder({ setDepStrategy }: any) {
         web3Provider
       );
       setDepStrategy(deployedStrategy);
+      const conditionContext = conditions.buildContext(web3Provider);
+      setConditionContext(conditionContext);
     }
   };
 

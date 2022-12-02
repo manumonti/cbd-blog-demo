@@ -112,10 +112,9 @@ function Encrypt({ depStrategy, setEncryptedMessage }: any) {
   ];
 
   const encrypt = () => {
-    const plaintext = "This is a secret";
     const encrypter = depStrategy.encrypter;
     if (encrypter) {
-      setEncryptedMessage(encrypter.encryptMessage(plaintext));
+      setEncryptedMessage(encrypter.encryptMessage(JSON.stringify(blogPosts)));
     }
   };
 

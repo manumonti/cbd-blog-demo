@@ -8,6 +8,7 @@ function App() {
   const { activateBrowserWallet, deactivate, account } = useEthers();
   const [depStrategy, setDepStrategy] = useState("not deployed");
   const [encryptedMessage, setEncryptedMessage] = useState("");
+  const [conditionContext, setConditionContext] = useState(null);
 
   return (
     <div>
@@ -19,6 +20,7 @@ function App() {
         setDepStrategy={setDepStrategy}
         encryptedMessage={encryptedMessage}
         setEncryptedMessage={setEncryptedMessage}
+        setConditionContext={setConditionContext}
       />
       <div>
         <div className="blog-header">

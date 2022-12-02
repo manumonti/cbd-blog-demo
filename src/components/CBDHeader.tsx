@@ -10,6 +10,7 @@ function CBDHeader({
   setDepStrategy,
   encryptedMessage,
   setEncryptedMessage,
+  setConditionContext,
 }: any) {
   function shortenAddress(address: string) {
     if (address && address.length === 42) {
@@ -27,7 +28,7 @@ function CBDHeader({
   }
 
   function showEncrypted() {
-    return encryptedMessage ? "Encrypted" : "not ready"
+    return encryptedMessage ? "Encrypted" : "not ready";
   }
 
   return (
@@ -40,13 +41,15 @@ function CBDHeader({
             </button>
           </div>
           <div>
-            <StrategyBuilder setDepStrategy={setDepStrategy} />
+            <StrategyBuilder
+              setDepStrategy={setDepStrategy}
+              setConditionContext={setConditionContext}
+            />
           </div>
           <Encrypt
             depStrategy={depStrategy}
             setEncryptedMessage={setEncryptedMessage}
           />
-          <div></div>
         </div>
         <div className="column">
           <div style={{ textAlign: "right" }}>
