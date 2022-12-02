@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { useEthers } from "@usedapp/core";
-import Posts from "./components/Posts";
-import CBDHeader from "./components/CBDHeader";
+import Posts from "./components/Blog/Posts";
+import CBDHeader from "./components/CBD/CBDHeader";
 
 function App() {
   const { activateBrowserWallet, deactivate, account } = useEthers();

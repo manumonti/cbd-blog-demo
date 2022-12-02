@@ -1,11 +1,15 @@
 import React from "react";
-import { blogPosts } from "./BlogData";
+import {
+  silverBlogPosts,
+  bronzeBlogPosts,
+  goldBlogPosts,
+} from "../Blog/BlogData";
 
 function Encrypt({ depStrategy, setEncryptedMessage }: any) {
   const encrypt = () => {
     const encrypter = depStrategy.encrypter;
     if (encrypter) {
-      setEncryptedMessage(encrypter.encryptMessage(JSON.stringify(blogPosts)));
+      setEncryptedMessage(encrypter.encryptMessage(JSON.stringify(silverBlogPosts)));
     }
   };
 
