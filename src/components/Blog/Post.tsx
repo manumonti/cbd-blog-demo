@@ -14,7 +14,11 @@ function Post({ post }: any) {
   }
 
   if (Object.keys(post).length === 0) {
-    return null;
+    return (
+      <div className="post-container">
+        <h2 className="post-heading">No articles available</h2>
+      </div>
+    );
   }
 
   return (

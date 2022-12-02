@@ -20,13 +20,13 @@ function StrategyBuilder({ setDepStrategy }: any) {
 
     const cohort = await Cohort.create(cohortConfig);
 
-    const condition = new Conditions.ERC721Balance({
+    const conditionSilver = new Conditions.ERC721Balance({
       contractAddress: "0xf5de760f2e916647fd766B4AD9E85ff943cE3A2b",
       chain: 5,
     });
-    const conditions = new ConditionSet([condition]);
+    const conditionsSilver = new ConditionSet([conditionSilver]);
 
-    const strategy = Strategy.create(cohort, conditions);
+    const strategy = Strategy.create(cohort, conditionsSilver);
 
     const mmProvider = await detectEthereumProvider();
     const network = providers.getNetwork("maticmum");
