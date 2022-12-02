@@ -7,8 +7,9 @@ import CBDHeader from "./components/CBDHeader";
 function App() {
   const { activateBrowserWallet, deactivate, account } = useEthers();
   const [depStrategy, setDepStrategy] = useState("not deployed");
-  const [encryptedMessage, setEncryptedMessage] = useState("");
   const [conditionContext, setConditionContext] = useState(null);
+  const [encryptedMessage, setEncryptedMessage] = useState("");
+  const [decryptedMessage, setDecryptedMessage] = useState(null);
 
   return (
     <div>
@@ -18,15 +19,18 @@ function App() {
         deactivate={deactivate}
         depStrategy={depStrategy}
         setDepStrategy={setDepStrategy}
+        conditionContext={conditionContext}
+        setConditionContext={setConditionContext}
         encryptedMessage={encryptedMessage}
         setEncryptedMessage={setEncryptedMessage}
-        setConditionContext={setConditionContext}
+        decryptedMessage={decryptedMessage}
+        setDecryptedMessage={setDecryptedMessage}
       />
       <div>
         <div className="blog-header">
           <h1>Nucypher's CBD Blog Demo</h1>
         </div>
-        <Posts />
+        <Posts decryptedMessage={decryptedMessage} />
       </div>
     </div>
   );

@@ -1,8 +1,13 @@
 import React from "react";
 import Post from "./Post";
 
-function Posts() {
-  const blogPosts = [{}];
+function Posts({ decryptedMessage }: any) {
+  let blogPosts = [{}];
+  if (!decryptedMessage) {
+    return null;
+  } else {
+    blogPosts = JSON.parse(decryptedMessage);
+  }
 
   return (
     <div className="posts-container">

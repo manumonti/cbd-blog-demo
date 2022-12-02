@@ -1,6 +1,7 @@
 import React from "react";
 import StrategyBuilder from "./StrategyBuilder";
 import Encrypt from "./Encrypt";
+import Decrypt from "./Decrypt";
 
 function CBDHeader({
   activateBrowserWallet,
@@ -8,9 +9,12 @@ function CBDHeader({
   deactivate,
   depStrategy,
   setDepStrategy,
+  conditionContext,
+  setConditionContext,
   encryptedMessage,
   setEncryptedMessage,
-  setConditionContext,
+  decryptedMessage,
+  setDecryptedMessage,
 }: any) {
   function shortenAddress(address: string) {
     if (address && address.length === 42) {
@@ -31,6 +35,10 @@ function CBDHeader({
     return encryptedMessage ? "Encrypted" : "not ready";
   }
 
+  function showDecrypted() {
+    return decryptedMessage ? "Decrypted" : "not ready";
+  }
+
   return (
     <div className="cbd-header">
       <div className="row">
@@ -46,10 +54,20 @@ function CBDHeader({
               setConditionContext={setConditionContext}
             />
           </div>
-          <Encrypt
-            depStrategy={depStrategy}
-            setEncryptedMessage={setEncryptedMessage}
-          />
+          <div>
+            <Encrypt
+              depStrategy={depStrategy}
+              setEncryptedMessage={setEncryptedMessage}
+            />
+          </div>
+          <div>
+            <Decrypt
+              depStrategy={depStrategy}
+              conditionContext={conditionContext}
+              encryptedMessage={encryptedMessage}
+              setDecryptedMessage={setDecryptedMessage}
+            />
+          </div>
         </div>
         <div className="column">
           <div style={{ textAlign: "right" }}>
@@ -65,7 +83,10 @@ function CBDHeader({
               Strategy: <b>{showStrategy(depStrategy)}</b>
             </div>
             <div>
-              Blog posts: <b>{showEncrypted()}</b>
+              Posts encryption: <b>{showEncrypted()}</b>
+            </div>
+            <div>
+              Posts decryption: <b>{showDecrypted()}</b>
             </div>
           </div>
         </div>
