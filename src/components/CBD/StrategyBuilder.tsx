@@ -57,30 +57,32 @@ function StrategyBuilder({ setDepStrategy }: any) {
     if (mmProvider) {
       const web3Provider = new providers.Web3Provider(mmProvider, network);
 
-      const deployedStrategySilver = strategySilver.deploy(
+      const deployedStrategySilverProm = strategySilver.deploy(
         "blog-subscription-silver",
         web3Provider
       );
-      const deployedStrategyBronze = strategyBronze.deploy(
-        "blog-subscription-bronze",
-        web3Provider
-      );
-      const deployedStrategyGold = strategyGold.deploy(
-        "blog-subscription-gold",
-        web3Provider
-      );
 
-      await deployedStrategySilver;
+      // const deployedStrategyBronzeProm = strategyBronze.deploy(
+      //   "blog-subscription-bronze",
+      //   web3Provider
+      // );
+
+      // const deployedStrategyGoldProm = strategyGold.deploy(
+      //   "blog-subscription-gold",
+      //   web3Provider
+      // );
+
+      const deployedStrategySilver = await deployedStrategySilverProm;
       console.log(deployedStrategySilver);
-      await deployedStrategyBronze;
-      console.log(deployedStrategyBronze);
-      await deployedStrategyGold;
-      console.log(deployedStrategyGold);
+      // const deployedStrategyBronze = await deployedStrategyBronzeProm;
+      // console.log(deployedStrategyBronze);
+      // const deployedStrategyGold = await deployedStrategyGoldProm;
+      // console.log(deployedStrategyGold);
 
       setDepStrategy([
         deployedStrategySilver,
-        deployedStrategyBronze,
-        deployedStrategyGold,
+        // deployedStrategyBronze,
+        // deployedStrategyGold,
       ]);
     }
   };
