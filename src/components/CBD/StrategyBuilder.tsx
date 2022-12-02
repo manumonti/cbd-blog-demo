@@ -62,27 +62,27 @@ function StrategyBuilder({ setDepStrategy }: any) {
         web3Provider
       );
 
-      // const deployedStrategyBronzeProm = strategyBronze.deploy(
-      //   "blog-subscription-bronze",
-      //   web3Provider
-      // );
+      const deployedStrategyBronzeProm = strategyBronze.deploy(
+        "blog-subscription-bronze",
+        web3Provider
+      );
 
-      // const deployedStrategyGoldProm = strategyGold.deploy(
-      //   "blog-subscription-gold",
-      //   web3Provider
-      // );
+      const deployedStrategyGoldProm = strategyGold.deploy(
+        "blog-subscription-gold",
+        web3Provider
+      );
 
       const deployedStrategySilver = await deployedStrategySilverProm;
       console.log(deployedStrategySilver);
-      // const deployedStrategyBronze = await deployedStrategyBronzeProm;
-      // console.log(deployedStrategyBronze);
-      // const deployedStrategyGold = await deployedStrategyGoldProm;
-      // console.log(deployedStrategyGold);
+      const deployedStrategyBronze = await deployedStrategyBronzeProm;
+      console.log(deployedStrategyBronze);
+      const deployedStrategyGold = await deployedStrategyGoldProm;
+      console.log(deployedStrategyGold);
 
       setDepStrategy([
         deployedStrategySilver,
-        // deployedStrategyBronze,
-        // deployedStrategyGold,
+        deployedStrategyBronze,
+        deployedStrategyGold,
       ]);
     }
   };

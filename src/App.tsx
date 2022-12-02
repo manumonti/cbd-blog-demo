@@ -25,7 +25,7 @@ function App() {
       />
       <div>
         <div className="blog-header">
-          <h1>Nucypher's CBD Blog Demo</h1>
+          <h1>CBD demo: Alpha leaks</h1>
         </div>
         <Posts decryptedMessage={decryptedMessage} />
       </div>

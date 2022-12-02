@@ -1,4 +1,4 @@
-# CBD Demo: Subscription blog
+# CBD Demo: Alpha leaks
 
 ## Get started
 
