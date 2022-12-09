@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@metamask/detect-provider": "^2.0.0",
-    "@nucypher/nucypher-ts": "^0.7.9-alpha.26",
+    "@nucypher/nucypher-ts": "^0.9.0",
     "@usedapp/core": "^1.2.2",
     "ethers": "^5.7.2",
     "file-loader": "^6.2.0",
