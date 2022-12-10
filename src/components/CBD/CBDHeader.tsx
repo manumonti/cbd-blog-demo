@@ -1,20 +1,14 @@
 import React from "react";
+import { useState } from "react";
 import { useEthers } from "@usedapp/core";
 import StrategyBuilder from "./StrategyBuilder";
 import Encrypt from "./Encrypt";
 import Decrypt from "./Decrypt";
 
-function CBDHeader({
-  depStrategy,
-  setDepStrategy,
-  depStrategyStatus,
-  setDepStrategyStatus,
-  encryptedMessage,
-  setEncryptedMessage,
-  decryptedMessage,
-  setDecryptedMessage,
-}: any) {
-
+function CBDHeader({ decryptedMessage, setDecryptedMessage }: any) {
+  const [depStrategy, setDepStrategy] = useState("null");
+  const [depStrategyStatus, setDepStrategyStatus] = useState("not deployed");
+  const [encryptedMessage, setEncryptedMessage] = useState("");
   const { activateBrowserWallet, deactivate, account } = useEthers();
 
   function shortenAddress(address: string | undefined) {
