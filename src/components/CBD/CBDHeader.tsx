@@ -9,6 +9,8 @@ function CBDHeader({
   deactivate,
   depStrategy,
   setDepStrategy,
+  depStrategyStatus,
+  setDepStrategyStatus,
   encryptedMessage,
   setEncryptedMessage,
   decryptedMessage,
@@ -19,14 +21,6 @@ function CBDHeader({
       return `${address.slice(0, 5)}...${address.slice(38)}`;
     }
     return "not connected";
-  }
-
-  function showStrategy(depStrategy: any) {
-    if (typeof depStrategy === "string") {
-      return depStrategy;
-    } else {
-      return depStrategy.length === 0 ? "not deployed" : "deployed";
-    }
   }
 
   function showEncrypted() {
@@ -47,7 +41,10 @@ function CBDHeader({
             </button>
           </div>
           <div>
-            <StrategyBuilder setDepStrategy={setDepStrategy} />
+            <StrategyBuilder
+              setDepStrategy={setDepStrategy}
+              setDepStrategyStatus={setDepStrategyStatus}
+            />
           </div>
           <div>
             <Encrypt
@@ -74,7 +71,7 @@ function CBDHeader({
               </span>
             )}
             <div>
-              Strategies: <b>{showStrategy(depStrategy)}</b>
+              Strategies: <b>{depStrategyStatus}</b>
             </div>
             <div>
               Posts encryption: <b>{showEncrypted()}</b>
