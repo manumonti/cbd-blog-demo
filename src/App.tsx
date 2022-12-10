@@ -1,11 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import { useEthers } from "@usedapp/core";
 import Posts from "./components/Blog/Posts";
 import CBDHeader from "./components/CBD/CBDHeader";
 
 function App() {
-  const { activateBrowserWallet, deactivate, account } = useEthers();
   const [depStrategy, setDepStrategy] = useState("null");
   const [depStrategyStatus, setDepStrategyStatus] = useState("not deployed")
   const [encryptedMessage, setEncryptedMessage] = useState("");
@@ -14,9 +12,6 @@ function App() {
   return (
     <div>
       <CBDHeader
-        activateBrowserWallet={activateBrowserWallet}
-        account={account}
-        deactivate={deactivate}
         depStrategy={depStrategy}
         setDepStrategy={setDepStrategy}
         depStrategyStatus={depStrategyStatus}

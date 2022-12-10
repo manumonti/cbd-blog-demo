@@ -1,12 +1,10 @@
 import React from "react";
+import { useEthers } from "@usedapp/core";
 import StrategyBuilder from "./StrategyBuilder";
 import Encrypt from "./Encrypt";
 import Decrypt from "./Decrypt";
 
 function CBDHeader({
-  activateBrowserWallet,
-  account,
-  deactivate,
   depStrategy,
   setDepStrategy,
   depStrategyStatus,
@@ -16,7 +14,10 @@ function CBDHeader({
   decryptedMessage,
   setDecryptedMessage,
 }: any) {
-  function shortenAddress(address: string) {
+
+  const { activateBrowserWallet, deactivate, account } = useEthers();
+
+  function shortenAddress(address: string | undefined) {
     if (address && address.length === 42) {
       return `${address.slice(0, 5)}...${address.slice(38)}`;
     }
