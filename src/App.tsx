@@ -25,7 +25,7 @@ function App() {
       />
       <div>
         <div className="blog-header">
-          <h1>CBD demo: Alpha leaks</h1>
+          <h1>Alpha leaks demo</h1>
         </div>
         <Posts decryptedMessage={decryptedMessage} />
       </div>
