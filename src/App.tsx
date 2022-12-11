@@ -1,18 +1,18 @@
+import "./index.css";
 import React from "react";
 import ReactDOM from "react-dom";
 import { useState } from "react";
-import { DAppProvider, Config, Goerli } from "@usedapp/core";
-import "./index.css";
+import { DAppProvider, Config, Mumbai } from "@usedapp/core";
 import Posts from "./components/Blog/Posts";
 import CBDHeader from "./components/CBD/CBDHeader";
 
+// const mumbaiApi: string = process.env.MUMBAI_API as string;
+
 const config: Config = {
-  // readOnlyChainId: Goerli.chainId,
-  // readOnlyUrls: {
-  //   [Goerli.chainId]:
-  //     "https://goerli.infura.io/v3/a11313ddcf61443898b6a47e952d255c",
-  // },
-  // networks: [Goerli],
+  autoConnect: false,
+  // networks: [Mumbai],
+  // readOnlyChainId: Mumbai.chainId,
+  // readOnlyUrls: { [Mumbai.chainId]: mumbaiApi },
 };
 
 ReactDOM.render(

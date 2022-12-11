@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { ESBuildMinifyPlugin } = require("esbuild-loader");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 const webpack = require("webpack");
+// const Dotenv = require("dotenv-webpack");
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 
@@ -18,6 +19,7 @@ module.exports = {
       Buffer: ["buffer", "Buffer"],
       process: "process/browser",
     }),
+    // new Dotenv(),
   ].filter(Boolean),
   module: {
     rules: [
