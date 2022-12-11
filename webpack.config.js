@@ -7,7 +7,7 @@ const webpack = require("webpack");
 const isDevelopment = process.env.NODE_ENV !== "production";
 
 module.exports = {
-  entry: "./src",
+  entry: "./src/App.tsx",
   devtool: isDevelopment ? "eval-source-map" : "source-map",
   plugins: [
     isDevelopment && new ReactRefreshWebpackPlugin(),
