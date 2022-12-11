@@ -5,10 +5,11 @@ import StrategyBuilder from "./StrategyBuilder";
 import Encrypt from "./Encrypt";
 import Decrypt from "./Decrypt";
 
-function CBDHeader({ decryptedMessage, setDecryptedMessage }: any) {
+function CBDHeader({ decryptedMessages, setDecryptedMessages }: any) {
   const [depStrategy, setDepStrategy] = useState("null");
   const [depStrategyStatus, setDepStrategyStatus] = useState("not deployed");
-  const [encryptedMessage, setEncryptedMessage] = useState([]);
+  const [conditionSets, setConditionSets] = useState([]);
+  const [encryptedMessages, setEncryptedMessages] = useState([]);
   const { activateBrowserWallet, deactivate, account } = useEthers();
 
   function shortenAddress(address: string | undefined) {
@@ -19,11 +20,11 @@ function CBDHeader({ decryptedMessage, setDecryptedMessage }: any) {
   }
 
   function showEncrypted() {
-    return encryptedMessage.length !== 0 ? "encrypted" : "not ready";
+    return encryptedMessages.length !== 0 ? "encrypted" : "not ready";
   }
 
   function showDecrypted() {
-    return decryptedMessage ? "decrypted" : "not ready";
+    return decryptedMessages.length !== 0 ? "decrypted" : "not ready";
   }
 
   return (
@@ -44,14 +45,16 @@ function CBDHeader({ decryptedMessage, setDecryptedMessage }: any) {
           <div>
             <Encrypt
               depStrategy={depStrategy}
-              setEncryptedMessage={setEncryptedMessage}
+              setConditionSets={setConditionSets}
+              setEncryptedMessages={setEncryptedMessages}
             />
           </div>
           <div>
             <Decrypt
               depStrategy={depStrategy}
-              encryptedMessage={encryptedMessage}
-              setDecryptedMessage={setDecryptedMessage}
+              conditionSets={conditionSets}
+              encryptedMessages={encryptedMessages}
+              setDecryptedMessages={setDecryptedMessages}
             />
           </div>
         </div>

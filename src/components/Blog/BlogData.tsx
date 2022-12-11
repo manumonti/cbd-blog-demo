@@ -1,43 +1,3 @@
-export const silverBlogPosts = [
-  {
-    title: "Three Pillars of DAO Treasury Management",
-    body: `Effective treasury management essentially boils down to one
-      fundamental principle: defending against volatility. What is meant by
-      volatility in this context is simply how frequently and dramatically the
-      net worth of all assets contained within a treasury rises and falls. Too
-      much volatility in a treasury makes it very difficult for a DAO to create
-      any long-term plans and goals that require resources, since what
-      resources will be available in the future is uncertain.`,
-    author: "Threshold",
-    imgUrl:
-      "https://blog.threshold.network/content/images/size/w1000/2022/10/BLOG-three-pillars-1.jpg",
-    tier: "silver",
-  },
-  {
-    title: "The Updated Rewards Allocation Between tBTC and PRE Stakers",
-    body: `Threshold DAO recently ratified a proposal to change the way
-      rewards are split between tBTC and Proxy Re-Encryption (PRE) stakers.
-      Previously, a majority of rewards have been allocated to Threshold’s
-      first product, PRE. As a result of this proposal, rewards will now be
-      rebalanced towards tBTC over time to support the full rollout of the
-      decentralized bridge. `,
-    author: "Hagan Dietz",
-    imgUrl:
-      "https://blog.threshold.network/content/images/size/w1000/2022/10/BLOGPOST_Rewards.jpg",
-    tier: "silver",
-  },
-  {
-    title: "tBTC v2 Hits Its First Launch Milestone",
-    body: `We’re excited to announce that the client software of tBTC v2,
-      the censorship-resistant Bitcoin bridge that combines decentralization
-      with scalability, is now launched.`,
-    author: "Hagan Dietz",
-    imgUrl:
-      "https://blog.threshold.network/content/images/size/w1000/2022/10/chaosnet_header.jpg",
-    tier: "silver",
-  },
-];
-
 export const bronzeBlogPosts = [
   {
     title: "Threshold Network To Integrate Chainlink Proof of Reserve",
@@ -80,6 +40,46 @@ export const bronzeBlogPosts = [
     imgUrl:
       "https://blog.threshold.network/content/images/size/w1000/2022/10/security-2.jpg",
     tier: "bronze",
+  },
+];
+
+export const silverBlogPosts = [
+  {
+    title: "Three Pillars of DAO Treasury Management",
+    body: `Effective treasury management essentially boils down to one
+      fundamental principle: defending against volatility. What is meant by
+      volatility in this context is simply how frequently and dramatically the
+      net worth of all assets contained within a treasury rises and falls. Too
+      much volatility in a treasury makes it very difficult for a DAO to create
+      any long-term plans and goals that require resources, since what
+      resources will be available in the future is uncertain.`,
+    author: "Threshold",
+    imgUrl:
+      "https://blog.threshold.network/content/images/size/w1000/2022/10/BLOG-three-pillars-1.jpg",
+    tier: "silver",
+  },
+  {
+    title: "The Updated Rewards Allocation Between tBTC and PRE Stakers",
+    body: `Threshold DAO recently ratified a proposal to change the way
+      rewards are split between tBTC and Proxy Re-Encryption (PRE) stakers.
+      Previously, a majority of rewards have been allocated to Threshold’s
+      first product, PRE. As a result of this proposal, rewards will now be
+      rebalanced towards tBTC over time to support the full rollout of the
+      decentralized bridge. `,
+    author: "Hagan Dietz",
+    imgUrl:
+      "https://blog.threshold.network/content/images/size/w1000/2022/10/BLOGPOST_Rewards.jpg",
+    tier: "silver",
+  },
+  {
+    title: "tBTC v2 Hits Its First Launch Milestone",
+    body: `We’re excited to announce that the client software of tBTC v2,
+      the censorship-resistant Bitcoin bridge that combines decentralization
+      with scalability, is now launched.`,
+    author: "Hagan Dietz",
+    imgUrl:
+      "https://blog.threshold.network/content/images/size/w1000/2022/10/chaosnet_header.jpg",
+    tier: "silver",
   },
 ];
 

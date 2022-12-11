@@ -6,10 +6,11 @@ import {
   goldBlogPosts,
 } from "../Blog/BlogData";
 
-function Encrypt({ depStrategy, setEncryptedMessage }: any) {
+function Encrypt({ depStrategy, setConditionSets, setEncryptedMessages }: any) {
   const buildERC721BalanceCondConfig = (balance: number) => {
     const config = {
       contractAddress: "0xf5de760f2e916647fd766B4AD9E85ff943cE3A2b",
+      standardContractType: "ERC721",
       chain: 5,
       method: "balanceOf",
       parameters: [":userAddress"],
@@ -22,34 +23,40 @@ function Encrypt({ depStrategy, setEncryptedMessage }: any) {
   };
 
   const encrypt = () => {
-    setEncryptedMessage([]);
+    setConditionSets([]);
+    setEncryptedMessages([]);
 
     const encrypter = depStrategy.encrypter;
 
-    const conditionSilver = new Conditions.Condition(
-      buildERC721BalanceCondConfig(1)
-    );
-    const conditionBronze = new Conditions.Condition(
-      buildERC721BalanceCondConfig(2)
-    );
-    const conditionGold = new Conditions.Condition(
-      buildERC721BalanceCondConfig(3)
-    );
+    const conditionSetBronze = new ConditionSet([
+      new Conditions.Condition(buildERC721BalanceCondConfig(1)),
+    ]);
+    const conditionSetSilver = new ConditionSet([
+      new Conditions.Condition(buildERC721BalanceCondConfig(2)),
+    ]);
+    const conditionSetGold = new ConditionSet([
+      new Conditions.Condition(buildERC721BalanceCondConfig(3)),
+    ]);
 
-    const encryptedSilver = encrypter.encryptMessage(
-      JSON.stringify(silverBlogPosts),
-      new ConditionSet([conditionSilver])
-    );
     const encryptedBronze = encrypter.encryptMessage(
       JSON.stringify(bronzeBlogPosts),
-      new ConditionSet([conditionBronze])
+      conditionSetBronze
+    );
+    const encryptedSilver = encrypter.encryptMessage(
+      JSON.stringify(silverBlogPosts),
+      conditionSetSilver
     );
     const encryptedGold = encrypter.encryptMessage(
       JSON.stringify(goldBlogPosts),
-      new ConditionSet([conditionGold])
+      conditionSetGold
     );
 
-    setEncryptedMessage([encryptedSilver, encryptedBronze, encryptedGold]);
+    setConditionSets([
+      conditionSetBronze,
+      conditionSetSilver,
+      conditionSetGold,
+    ]);
+    setEncryptedMessages([encryptedBronze, encryptedSilver, encryptedGold]);
   };
 
   return (

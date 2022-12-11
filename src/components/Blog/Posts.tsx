@@ -1,12 +1,12 @@
 import React from "react";
 import Post from "./Post";
 
-function Posts({ decryptedMessage }: any) {
+function Posts({ decryptedMessages }: any) {
   let blogPosts = [{}];
-  if (!decryptedMessage) {
+  if (decryptedMessages.length === 0) {
     return null;
   } else {
-    blogPosts = JSON.parse(decryptedMessage);
+    blogPosts = JSON.parse(decryptedMessages);
   }
 
   return (

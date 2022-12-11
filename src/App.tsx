@@ -25,19 +25,19 @@ ReactDOM.render(
 );
 
 function App() {
-  const [decryptedMessage, setDecryptedMessage] = useState(null);
+  const [decryptedMessages, setDecryptedMessages] = useState([]);
 
   return (
     <div>
       <CBDHeader
-        decryptedMessage={decryptedMessage}
-        setDecryptedMessage={setDecryptedMessage}
+        decryptedMessages={decryptedMessages}
+        setDecryptedMessages={setDecryptedMessages}
       />
       <div>
         <div className="blog-header">
           <h1>Alpha leaks demo</h1>
         </div>
-        <Posts decryptedMessage={decryptedMessage} />
+        <Posts decryptedMessages={decryptedMessages} />
       </div>
     </div>
   );
