@@ -1,12 +1,7 @@
 import React from "react";
 import { Mumbai, useEthers } from "@usedapp/core";
-import detectEthereumProvider from "@metamask/detect-provider";
 import { providers } from "ethers";
-import {
-  Cohort,
-  DeployedStrategy,
-  Strategy,
-} from "@nucypher/nucypher-ts";
+import { Cohort, Strategy } from "@nucypher/nucypher-ts";
 
 function StrategyBuilder({ setDepStrategy, setDepStrategyStatus }: any) {
   const { switchNetwork } = useEthers();

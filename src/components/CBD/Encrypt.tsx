@@ -1,4 +1,5 @@
 import React from "react";
+import { Conditions, ConditionSet } from "@nucypher/nucypher-ts";
 import {
   silverBlogPosts,
   bronzeBlogPosts,
@@ -6,30 +7,49 @@ import {
 } from "../Blog/BlogData";
 
 function Encrypt({ depStrategy, setEncryptedMessage }: any) {
+  const buildERC721BalanceCondConfig = (balance: number) => {
+    const config = {
+      contractAddress: "0xf5de760f2e916647fd766B4AD9E85ff943cE3A2b",
+      chain: 5,
+      method: "balanceOf",
+      parameters: [":userAddress"],
+      returnValueTest: {
+        comparator: ">=",
+        value: balance,
+      },
+    };
+    return config;
+  };
+
   const encrypt = () => {
-    let encryptedMessage = [];
+    setEncryptedMessage([]);
 
-    const encrypterSilver = depStrategy[0] ? depStrategy[0].encrypter : null;
-    const encrypterBronze = depStrategy[1] ? depStrategy[1].encrypter : null;
-    const encrypterGold = depStrategy[2] ? depStrategy[2].encrypter : null;
+    const encrypter = depStrategy.encrypter;
 
-    if (encrypterSilver) {
-      encryptedMessage.push(
-        encrypterSilver.encryptMessage(JSON.stringify(silverBlogPosts))
-      );
-    }
-    if (encrypterBronze) {
-      encryptedMessage.push(
-        encrypterBronze.encryptMessage(JSON.stringify(bronzeBlogPosts))
-      );
-    }
-    if (encrypterGold) {
-      encryptedMessage.push(
-        encrypterGold.encryptMessage(JSON.stringify(goldBlogPosts))
-      );
-    }
-    setEncryptedMessage(encryptedMessage);
-    console.log(encryptedMessage);
+    const conditionSilver = new Conditions.Condition(
+      buildERC721BalanceCondConfig(1)
+    );
+    const conditionBronze = new Conditions.Condition(
+      buildERC721BalanceCondConfig(2)
+    );
+    const conditionGold = new Conditions.Condition(
+      buildERC721BalanceCondConfig(3)
+    );
+
+    const encryptedSilver = encrypter.encryptMessage(
+      JSON.stringify(silverBlogPosts),
+      new ConditionSet([conditionSilver])
+    );
+    const encryptedBronze = encrypter.encryptMessage(
+      JSON.stringify(bronzeBlogPosts),
+      new ConditionSet([conditionBronze])
+    );
+    const encryptedGold = encrypter.encryptMessage(
+      JSON.stringify(goldBlogPosts),
+      new ConditionSet([conditionGold])
+    );
+
+    setEncryptedMessage([encryptedSilver, encryptedBronze, encryptedGold]);
   };
 
   return (
