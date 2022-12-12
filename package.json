@@ -2,9 +2,12 @@
   "name": "alpha-leaks-demo",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://manumonti.github.io/alpha-leaks-demo/",
   "scripts": {
     "start": "webpack serve --mode development",
-    "build": "tsc --noEmit && rimraf build && webpack --mode production --progress"
+    "build": "tsc --noEmit && rimraf build && webpack --mode production --progress",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@metamask/detect-provider": "^2.0.0",
@@ -27,6 +30,7 @@
     "buffer": "^6.0.3",
     "css-loader": "^6.7.2",
     "esbuild-loader": "^2.11.0",
+    "gh-pages": "^4.0.0",
     "html-webpack-plugin": "^4.5.0",
     "process": "^0.11.10",
     "react-refresh": "^0.11.0",
