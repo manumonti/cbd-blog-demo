@@ -1,4 +1,5 @@
 import React from "react";
+import { Mumbai } from "@usedapp/core";
 import { Conditions, ConditionSet } from "@nucypher/nucypher-ts";
 import {
   silverBlogPosts,
@@ -11,7 +12,7 @@ function Encrypt({ depStrategy, setConditionSets, setEncryptedMessages }: any) {
     const config = {
       contractAddress: "0xf5de760f2e916647fd766B4AD9E85ff943cE3A2b",
       standardContractType: "ERC721",
-      chain: 5,
+      chain: Mumbai.chainId,
       method: "balanceOf",
       parameters: [":userAddress"],
       returnValueTest: {
