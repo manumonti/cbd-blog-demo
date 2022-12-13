@@ -23,6 +23,8 @@ function Encrypt({ depStrategy, setConditionSets, setEncryptedMessages }: any) {
   };
 
   const encrypt = () => {
+    if (!depStrategy.encrypter) return;
+
     setConditionSets([]);
     setEncryptedMessages([]);
 

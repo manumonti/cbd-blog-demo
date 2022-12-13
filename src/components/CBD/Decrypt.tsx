@@ -11,6 +11,8 @@ function Decrypt({
   setDecryptedMessages,
 }: any) {
   const decrypt = async () => {
+    if (!depStrategy.decrypter) return;
+
     setDecryptedMessages([]);
 
     let blogPosts: Object[] = [];
@@ -34,7 +36,9 @@ function Decrypt({
 
           if (Object.values(mk.errors).length > 0) {
             Object.entries(mk.errors).map(([address, error]) =>
-              console.log(`Subscription ${subscription[i]} message: ${address} - ${error}`)
+              console.log(
+                `Subscription ${subscription[i]} message: ${address} - ${error}`
+              )
             );
           }
         }
