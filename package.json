@@ -2,7 +2,7 @@
   "name": "alpha-leaks-demo",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://manumonti.github.io/alpha-leaks-demo/",
+  "homepage": "https://nucypher.github.io/alpha-leaks-demo/",
   "engines": {
     "node": ">=16"
   },  "scripts": {
