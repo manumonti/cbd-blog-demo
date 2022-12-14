@@ -13,23 +13,13 @@ function Post({ post }: any) {
     return <i style={style}>{color}</i>;
   }
 
-  if (Object.keys(post).length === 0) {
-    return (
-      <div className="post-container">
-        <h2 className="post-heading">No articles available</h2>
-      </div>
-    );
-  }
-
   return (
     <div className="post-container">
       {colorTier(post.tier)}
       <h2 className="post-heading">{post.title}</h2>
       <img className="post-image" src={post.imgUrl} />
       <p>{post.body}</p>
-      <div className="info">
-        <h4>Written by: {post.author}</h4>
-      </div>
+      <h4>Written by: {post.author}</h4>
     </div>
   );
 }
