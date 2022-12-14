@@ -9,11 +9,13 @@ function Decrypt({
   conditionSets,
   encryptedMessages,
   setDecryptedMessages,
+  setDecMessagesStatus,
 }: any) {
   const decrypt = async () => {
     if (!depStrategy.decrypter) return;
 
     setDecryptedMessages([]);
+    setDecMessagesStatus("decrypting...");
 
     let blogPosts: Object[] = [];
     const web3Provider = new providers.Web3Provider(window.ethereum);
@@ -46,6 +48,7 @@ function Decrypt({
     }
 
     setDecryptedMessages(JSON.stringify(blogPosts));
+    setDecMessagesStatus("decrypted")
   };
 
   return (
