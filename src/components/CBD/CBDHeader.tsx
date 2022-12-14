@@ -10,6 +10,7 @@ function CBDHeader({ decryptedMessages, setDecryptedMessages }: any) {
   const [depStrategyStatus, setDepStrategyStatus] = useState("not deployed");
   const [conditionSets, setConditionSets] = useState([]);
   const [encryptedMessages, setEncryptedMessages] = useState([]);
+  const [decMessagesStatus, setDecMessagesStatus] = useState("not decrypted");
   const { activateBrowserWallet, deactivate, account } = useEthers();
 
   function shortenAddress(address: string | undefined) {
@@ -21,10 +22,6 @@ function CBDHeader({ decryptedMessages, setDecryptedMessages }: any) {
 
   function showEncrypted() {
     return encryptedMessages.length !== 0 ? "encrypted" : "not ready";
-  }
-
-  function showDecrypted() {
-    return decryptedMessages.length !== 0 ? "decrypted" : "not ready";
   }
 
   return (
@@ -55,6 +52,7 @@ function CBDHeader({ decryptedMessages, setDecryptedMessages }: any) {
               conditionSets={conditionSets}
               encryptedMessages={encryptedMessages}
               setDecryptedMessages={setDecryptedMessages}
+              setDecMessagesStatus={setDecMessagesStatus}
             />
           </div>
         </div>
@@ -75,7 +73,7 @@ function CBDHeader({ decryptedMessages, setDecryptedMessages }: any) {
               Posts encryption: <b>{showEncrypted()}</b>
             </div>
             <div>
-              Posts decryption: <b>{showDecrypted()}</b>
+              Posts decryption: <b>{decMessagesStatus}</b>
             </div>
           </div>
         </div>
