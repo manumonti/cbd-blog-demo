@@ -5,7 +5,7 @@ import StrategyBuilder from "./StrategyBuilder";
 import Encrypt from "./Encrypt";
 import Decrypt from "./Decrypt";
 
-function CBDHeader({ decryptedMessages, setDecryptedMessages }: any) {
+function CBDHeader({ setDecryptedMessages }: any) {
   const [depStrategy, setDepStrategy] = useState("null");
   const [depStrategyStatus, setDepStrategyStatus] = useState("not deployed");
   const [conditionSets, setConditionSets] = useState([]);

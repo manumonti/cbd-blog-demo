@@ -25,7 +25,6 @@ function App() {
   return (
     <div>
       <CBDHeader
-        decryptedMessages={decryptedMessages}
         setDecryptedMessages={setDecryptedMessages}
       />
       <div>
