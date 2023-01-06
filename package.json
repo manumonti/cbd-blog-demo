@@ -5,7 +5,8 @@
   "homepage": "https://nucypher.github.io/alpha-leaks-demo/",
   "engines": {
     "node": ">=16"
-  },  "scripts": {
+  },
+  "scripts": {
     "start": "webpack serve --mode development",
     "build": "tsc --noEmit && rimraf build && webpack --mode production --progress",
     "predeploy": "yarn build",
