@@ -1,5 +1,8 @@
 # Alpha leaks demo
 
+> [!WARNING]  
+> This is an outdated demo that will not work with recent versions of [taco-web](https://github.com/nucypher/taco-web/)
+
 See the live demo [here](https://nucypher.github.io/alpha-leaks-demo/).
 
 This is a demo that illustrates a use case of [Nucypher's Conditions-Based
